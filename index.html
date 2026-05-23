@@ -1,176 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Website</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Morgan — Senior Full-Stack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#080B10;--bg2:#0D1117;--bg3:#111827;--bg4:#1a2233;
+--surface:#131B29;--surface2:#1C2840;
+--border:#1E2D45;--border2:#243352;
+--text:#F0F4FF;--text2:#8FA8CC;--text3:#4A6080;
+--accent:#3B82F6;--accent2:#60A5FA;--accent3:#1D4ED8;
+--green:#10B981;--purple:#8B5CF6;--amber:#F59E0B;
+--mono:'JetBrains Mono',monospace;
+--sans:'DM Sans',sans-serif;--display:'Syne',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+img{max-width:100%;display:block}
 
-    body {
-      background: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-    }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,11,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,45,69,0.6)}
+.nav-logo{font-family:var(--display);font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:0.85rem;font-weight:400;color:var(--text2);transition:color 0.2s;letter-spacing:0.02em}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-size:0.82rem;font-weight:500;padding:0.5rem 1.1rem;border:1px solid var(--border2);border-radius:6px;color:var(--text2);transition:all 0.2s}
+.nav-cta:hover{border-color:var(--accent);color:var(--accent2)}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 2rem 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.12) 0%,transparent 70%);top:-100px;left:-100px;animation:pulse 8s ease-in-out infinite}
+.hero-glow2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.08) 0%,transparent 70%);bottom:0;right:100px;animation:pulse 10s ease-in-out infinite reverse}
+.grid-lines{position:absolute;inset:0;opacity:0.03;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:0.7}}
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+.hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 0.85rem;border:1px solid rgba(59,130,246,0.3);border-radius:100px;font-size:0.78rem;color:var(--accent2);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:2rem;background:rgba(59,130,246,0.05)}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-family:var(--display);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--text);margin-bottom:1.5rem}
+.hero h1 .line2{color:var(--text2);font-weight:400}
+.hero-sub{font-size:1.15rem;color:var(--text2);max-width:580px;line-height:1.7;margin-bottom:2.5rem;font-weight:300}
+.hero-sub strong{color:var(--accent2);font-weight:500}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;background:var(--accent);color:#fff;border-radius:8px;font-weight:500;font-size:0.92rem;transition:all 0.2s;letter-spacing:0.01em}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 8px 25px rgba(59,130,246,0.35)}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;border:1px solid var(--border2);color:var(--text2);border-radius:8px;font-weight:500;font-size:0.92rem;transition:all 0.2s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--text);transform:translateY(-1px)}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column}
+.stat-num{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.stat-label{font-size:0.8rem;color:var(--text3);letter-spacing:0.04em;text-transform:uppercase}
+.stat-divider{width:1px;background:var(--border);align-self:stretch;margin:0.3rem 0}
 
-    header p {
-      font-size: 1.2rem;
-      color: #d1d5db;
-    }
+/* SECTION COMMON */
+section{padding:100px 2rem}
+.section-inner{max-width:1000px;margin:0 auto;width:100%}
+.section-tag{font-size:0.75rem;font-family:var(--mono);color:var(--accent2);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;display:block}
+.section-title{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:1.5rem;line-height:1.15}
+.section-title span{color:var(--text2);font-weight:400}
+.section-desc{font-size:1.05rem;color:var(--text2);max-width:560px;line-height:1.75;font-weight:300}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0}
 
-    nav {
-      background: #1f2937;
-      padding: 10px;
-      text-align: center;
-    }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--text2);font-weight:300;margin-bottom:1.2rem;line-height:1.8}
+.about-highlights{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+.highlight-item{display:flex;align-items:flex-start;gap:0.85rem;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;transition:border-color 0.2s}
+.highlight-item:hover{border-color:var(--border2)}
+.hi-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.hi-icon.blue{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)}
+.hi-icon.green{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2)}
+.hi-icon.purple{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2)}
+.hi-icon.amber{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2)}
+.hi-title{font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.2rem}
+.hi-sub{font-size:0.8rem;color:var(--text3)}
+.about-right{position:sticky;top:100px}
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.terminal-header{display:flex;align-items:center;gap:0.5rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border);background:var(--surface)}
+.t-dot{width:12px;height:12px;border-radius:50%}
+.t-dot.r{background:#FF5F57}.t-dot.y{background:#FEBC2E}.t-dot.g{background:#28C840}
+.terminal-title{font-family:var(--mono);font-size:0.75rem;color:var(--text3);margin-left:0.5rem}
+.terminal-body{padding:1.25rem;font-family:var(--mono);font-size:0.8rem;line-height:1.9}
+.t-comment{color:var(--text3)}.t-key{color:#93C5FD}.t-str{color:#86EFAC}.t-num{color:#FCA5A5}.t-bool{color:#C084FC}.t-obj{color:var(--text2)}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.skill-category{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color 0.2s,transform 0.2s}
+.skill-category:hover{border-color:var(--border2);transform:translateY(-2px)}
+.sc-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem}
+.sc-icon{font-size:1.3rem}
+.sc-title{font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-tag{font-family:var(--mono);font-size:0.75rem;padding:0.3rem 0.65rem;border-radius:5px;color:var(--text2);border:1px solid var(--border)}
+.skill-tag.accent{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);color:var(--accent2)}
+.skill-tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);color:#6EE7B7}
+.skill-tag.purple{background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.25);color:#C4B5FD}
+.skill-tag.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25);color:#FCD34D}
 
-    nav a:hover {
-      color: #60a5fa;
-    }
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.25s,transform 0.25s;display:flex;flex-direction:column}
+.project-card:hover{border-color:var(--accent3);transform:translateY(-3px)}
+.project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:0}
+.project-img{height:220px;background:var(--bg3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.project-card.featured .project-img{height:100%;min-height:280px}
+.project-mockup{width:85%;height:75%;border-radius:8px;border:1px solid var(--border2);overflow:hidden;background:var(--bg2);display:flex;flex-direction:column}
+.pm-bar{height:28px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px;gap:6px}
+.pm-dot{width:9px;height:9px;border-radius:50%}
+.pm-content{flex:1;padding:12px;display:flex;flex-direction:column;gap:6px}
+.pm-line{height:6px;border-radius:3px;background:var(--border2)}
+.pm-line.w30{width:30%}.pm-line.w60{width:60%}.pm-line.w80{width:80%}.pm-line.w50{width:50%}.pm-line.w40{width:40%}
+.pm-block{flex:1;border-radius:6px;background:var(--border);margin-top:4px;opacity:0.4}
+.project-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.project-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem}
+.project-type{font-size:0.72rem;font-family:var(--mono);color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase}
+.project-links{display:flex;gap:0.5rem}
+.plink{font-size:0.75rem;padding:0.25rem 0.65rem;border:1px solid var(--border);border-radius:5px;color:var(--text3);transition:all 0.2s}
+.plink:hover{border-color:var(--accent);color:var(--accent2)}
+.project-title{font-family:var(--display);font-size:1.15rem;font-weight:700;margin-bottom:0.6rem;letter-spacing:-0.01em}
+.project-desc{font-size:0.88rem;color:var(--text2);line-height:1.7;margin-bottom:1rem;flex:1;font-weight:300}
+.project-achievements{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1rem}
+.achievement{font-size:0.8rem;color:var(--text2);display:flex;align-items:center;gap:0.5rem}
+.achievement::before{content:'→';color:var(--accent2);font-family:var(--mono);font-size:0.75rem}
+.project-stack{display:flex;flex-wrap:wrap;gap:0.4rem}
+.stack-tag{font-family:var(--mono);font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:4px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text3)}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+/* EXPERIENCE */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent3),var(--border),transparent)}
+.timeline-item{position:relative;padding-bottom:3rem;padding-left:2.5rem}
+.timeline-dot{position:absolute;left:-2.1rem;top:0.35rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 12px rgba(59,130,246,0.5)}
+.timeline-item:first-child .timeline-dot{background:var(--accent2);box-shadow:0 0 16px rgba(96,165,250,0.6)}
+.t-period{font-family:var(--mono);font-size:0.75rem;color:var(--accent2);letter-spacing:0.08em;margin-bottom:0.5rem}
+.t-role{font-family:var(--display);font-size:1.2rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:0.2rem}
+.t-company{font-size:0.88rem;color:var(--text2);margin-bottom:1rem}
+.t-company span{color:var(--accent2)}
+.t-achievements{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.t-achievements li{font-size:0.875rem;color:var(--text2);display:flex;gap:0.6rem;font-weight:300}
+.t-achievements li::before{content:'▸';color:var(--accent3);flex-shrink:0;margin-top:0.1rem}
 
-    section {
-      margin-bottom: 50px;
-    }
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.testimonial-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color 0.2s}
+.testimonial-card:hover{border-color:var(--border2)}
+.tc-quote{font-size:2rem;font-family:var(--display);color:var(--accent3);line-height:1;margin-bottom:0.75rem}
+.tc-text{font-size:0.9rem;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;font-weight:300;font-style:italic}
+.tc-author{display:flex;align-items:center;gap:0.75rem}
+.tc-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:600;letter-spacing:0.03em}
+.tc-name{font-size:0.85rem;font-weight:500}
+.tc-title-pos{font-size:0.75rem;color:var(--text3)}
 
-    h2 {
-      margin-bottom: 20px;
-      color: #111827;
-      border-bottom: 3px solid #60a5fa;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.blog-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all 0.2s;display:flex;flex-direction:column}
+.blog-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.blog-category{font-family:var(--mono);font-size:0.72rem;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem}
+.blog-title{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:0.6rem;line-height:1.4;letter-spacing:-0.01em}
+.blog-excerpt{font-size:0.84rem;color:var(--text2);line-height:1.7;flex:1;margin-bottom:1rem;font-weight:300}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:var(--text3);font-family:var(--mono)}
+.blog-readmore{font-size:0.78rem;color:var(--accent2);display:flex;align-items:center;gap:0.3rem;margin-top:0.5rem;transition:gap 0.2s}
+.blog-card:hover .blog-readmore{gap:0.6rem}
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem}
+.contact-info h3{font-family:var(--display);font-size:1.5rem;font-weight:700;margin-bottom:1rem;letter-spacing:-0.02em}
+.contact-info p{color:var(--text2);font-size:0.95rem;line-height:1.75;margin-bottom:2rem;font-weight:300}
+.contact-methods{display:flex;flex-direction:column;gap:0.75rem}
+.contact-method{display:flex;align-items:center;gap:0.85rem;padding:0.85rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:border-color 0.2s}
+.contact-method:hover{border-color:var(--border2)}
+.cm-icon{width:34px;height:34px;border-radius:7px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;font-size:0.95rem}
+.cm-label{font-size:0.78rem;color:var(--text3);margin-bottom:0.1rem}
+.cm-val{font-size:0.88rem;color:var(--accent2);font-family:var(--mono)}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem}
+.form-group label{font-size:0.78rem;color:var(--text3);letter-spacing:0.04em;text-transform:uppercase;font-family:var(--mono)}
+.form-group input,.form-group textarea,.form-group select{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1rem;color:var(--text);font-family:var(--sans);font-size:0.9rem;transition:border-color 0.2s;resize:none}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent3)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text3)}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:0.82rem;color:var(--text3);font-family:var(--mono)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:0.82rem;color:var(--text3);transition:color 0.2s}
+.footer-links a:hover{color:var(--accent2)}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+/* ANIMATE */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:none}
+.delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.2s}.delay-3{transition-delay:0.3s}.delay-4{transition-delay:0.4s}
 
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #2563eb;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background: #1d4ed8;
-    }
-  </style>
+@media(max-width:768px){
+.about-grid,.projects-grid,.contact-grid{grid-template-columns:1fr}
+.project-card.featured{grid-column:auto;grid-template-columns:1fr}
+.project-card.featured .project-img{height:200px}
+.nav-links{display:none}
+.hero h1{font-size:2.4rem}
+.form-row{grid-template-columns:1fr}
+footer{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Deepak Thapa</h1>
-    <p>Web Developer | Designer | Freelancer | Apis</p>
-  </header>
+<nav>
+  <div class="nav-logo">AM<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#blog">Writing</a>
+    <a href="#contact" class="nav-cta">Contact me</a>
+  </div>
+</nav>
 
-  <nav>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge fade-in">
+      <span class="badge-dot"></span>
+      Available for senior &amp; leadership roles
+    </div>
+    <h1 class="fade-in delay-1">Alex Morgan<br><span class="line2">Full-Stack Engineer.</span></h1>
+    <p class="hero-sub fade-in delay-2">
+      Building <strong>scalable digital products</strong> and cloud-native systems for startups and enterprises.
+      15+ years designing architecture that ships — and lasts.
+    </p>
+    <div class="hero-ctas fade-in delay-3">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="#contact" class="btn-secondary">Contact Me</a>
+    </div>
+    <div class="hero-stats fade-in delay-4">
+      <div class="stat-item">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Years Exp.</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">40+</span>
+        <span class="stat-label">Products Built</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">12</span>
+        <span class="stat-label">Engineers Led</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">$2B+</span>
+        <span class="stat-label">Transaction Volume</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-tag fade-in">About</span>
+        <h2 class="section-title fade-in">Turning complex<br><span>problems into elegant systems</span></h2>
+        <div class="fade-in delay-1">
+          <p>I've spent 15 years at the intersection of product and infrastructure — building teams, shipping systems, and closing the gap between business vision and technical execution.</p>
+          <p>My work spans early-stage startups that needed an MVP yesterday, to enterprise platforms processing millions of events per second. I care about the full stack: from schema design to CI/CD pipelines, from user experience to incident retrospectives.</p>
+          <p>I've led engineering teams across three time zones, architected multi-cloud migrations with zero downtime, and mentored junior engineers into senior ones.</p>
+        </div>
+        <div class="about-highlights fade-in delay-2">
+          <div class="highlight-item">
+            <div class="hi-icon blue">🏗️</div>
+            <div><div class="hi-title">System Architecture</div><div class="hi-sub">Distributed systems, microservices, event-driven design</div></div>
+          </div>
+          <div class="highlight-item">
+            <div class="hi-icon green">☁️</div>
+            <div><div class="hi-title">Cloud &amp; DevOps</div><div class="hi-sub">AWS, GCP, Terraform, Kubernetes, zero-downtime deploys</div></div>
+          </div>
+          <div class="highlight-item">
+            <div class="hi-icon purple">👥</div>
+            <div><div class="hi-title">Technical Leadership</div><div class="hi-sub">Hiring, mentoring, team structure, engineering culture</div></div>
+          </div>
+          <div class="highlight-item">
+            <div class="hi-icon amber">📈</div>
+            <div><div class="hi-title">Business Impact Focus</div><div class="hi-sub">Aligning engineering velocity with revenue outcomes</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-right fade-in delay-2">
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+            <span class="terminal-title">~/alex-morgan/.profile</span>
+          </div>
+          <div class="terminal-body">
+            <span class="t-comment">// Senior Full-Stack Engineer</span><br>
+            <span class="t-key">const</span> <span class="t-obj">engineer</span> = {<br>
+            &nbsp;&nbsp;<span class="t-key">name</span>: <span class="t-str">"Alex Morgan"</span>,<br>
+            &nbsp;&nbsp;<span class="t-key">role</span>: <span class="t-str">"Senior Full-Stack"</span>,<br>
+            &nbsp;&nbsp;<span class="t-key">experience</span>: <span class="t-num">15</span>,<span class="t-comment"> // years</span><br>
+            &nbsp;&nbsp;<span class="t-key">location</span>: <span class="t-str">"San Francisco, CA"</span>,<br>
+            &nbsp;&nbsp;<span class="t-key">openToWork</span>: <span class="t-bool">true</span>,<br>
+            &nbsp;&nbsp;<span class="t-key">focus</span>: [<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"scalable architecture"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"cloud-native systems"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"engineering leadership"</span><br>
+            &nbsp;&nbsp;],<br>
+            &nbsp;&nbsp;<span class="t-key">currentStack</span>: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">frontend</span>: <span class="t-str">"Next.js + TypeScript"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">backend</span>: <span class="t-str">"Node.js + Go"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">cloud</span>: <span class="t-str">"AWS + Kubernetes"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">db</span>: <span class="t-str">"PostgreSQL + Redis"</span><br>
+            &nbsp;&nbsp;}<br>
+            };<br><br>
+            <span class="t-comment">// Currently available for:</span><br>
+            <span class="t-comment">// → CTO / VP Engineering roles</span><br>
+            <span class="t-comment">// → Senior / Staff IC positions</span><br>
+            <span class="t-comment">// → Technical consulting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--bg2)">
+  <div class="section-inner">
+    <span class="section-tag fade-in">Technical Expertise</span>
+    <h2 class="section-title fade-in">Battle-tested<br><span>across the full stack</span></h2>
+    <div class="skills-grid" style="margin-top:2.5rem">
+      <div class="skill-category fade-in">
+        <div class="sc-header"><span class="sc-icon">⚡</span><span class="sc-title">Frontend</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag accent">React</span><span class="skill-tag accent">Next.js</span><span class="skill-tag accent">TypeScript</span><span class="skill-tag accent">Tailwind</span><span class="skill-tag">Vue.js</span><span class="skill-tag">Framer Motion</span><span class="skill-tag">GraphQL</span><span class="skill-tag">Vite</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in delay-1">
+        <div class="sc-header"><span class="sc-icon">🔧</span><span class="sc-title">Backend</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag green">Node.js</span><span class="skill-tag green">Python</span><span class="skill-tag green">Go</span><span class="skill-tag green">GraphQL</span><span class="skill-tag">REST APIs</span><span class="skill-tag">gRPC</span><span class="skill-tag">Rust</span><span class="skill-tag">Kafka</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in delay-2">
+        <div class="sc-header"><span class="sc-icon">☁️</span><span class="sc-title">Cloud &amp; DevOps</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag purple">AWS</span><span class="skill-tag purple">Docker</span><span class="skill-tag purple">Kubernetes</span><span class="skill-tag purple">Terraform</span><span class="skill-tag purple">CI/CD</span><span class="skill-tag">GCP</span><span class="skill-tag">Datadog</span><span class="skill-tag">Istio</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in delay-3">
+        <div class="sc-header"><span class="sc-icon">🗄️</span><span class="sc-title">Databases</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag amber">PostgreSQL</span><span class="skill-tag amber">Redis</span><span class="skill-tag amber">MongoDB</span><span class="skill-tag">MySQL</span><span class="skill-tag">Elasticsearch</span><span class="skill-tag">DynamoDB</span><span class="skill-tag">Snowflake</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <span class="section-tag fade-in">Featured Work</span>
+    <h2 class="section-title fade-in">Projects built<br><span>for scale and longevity</span></h2>
+    <div class="projects-grid" style="margin-top:2.5rem">
+      <div class="project-card featured fade-in">
+        <div class="project-img">
+          <div class="project-mockup">
+            <div class="pm-bar"><span class="pm-dot" style="background:#FF5F57"></span><span class="pm-dot" style="background:#FEBC2E"></span><span class="pm-dot" style="background:#28C840"></span></div>
+            <div class="pm-content">
+              <div class="pm-line w60" style="background:rgba(59,130,246,0.3)"></div>
+              <div class="pm-line w80"></div><div class="pm-line w40"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1"><div class="pm-block"></div><div class="pm-block" style="opacity:0.25"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type">Fintech · Enterprise</span>
+            <div class="project-links"><a href="#" class="plink">GitHub</a><a href="#" class="plink">Live ↗</a></div>
+          </div>
+          <div class="project-title">NovaPay — Real-time Payment Infrastructure</div>
+          <div class="project-desc">Multi-tenant payment platform processing $2B+ in annual transaction volume. Built from the ground up with CQRS, event sourcing, and distributed sagas for idempotent transactions across 40+ payment providers.</div>
+          <div class="project-achievements">
+            <div class="achievement">99.99% uptime across 36-month period</div>
+            <div class="achievement">Reduced payment latency from 800ms to 95ms</div>
+            <div class="achievement">Scaled from 10k to 2M transactions/day</div>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Go</span><span class="stack-tag">Node.js</span><span class="stack-tag">Kafka</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Redis</span><span class="stack-tag">Kubernetes</span><span class="stack-tag">AWS</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in delay-1">
+        <div class="project-img">
+          <div class="project-mockup" style="width:78%;height:72%">
+            <div class="pm-bar"><span class="pm-dot" style="background:#FF5F57"></span><span class="pm-dot" style="background:#FEBC2E"></span></div>
+            <div class="pm-content">
+              <div class="pm-line w50" style="background:rgba(139,92,246,0.3)"></div>
+              <div class="pm-line w80"></div><div class="pm-line w30"></div><div class="pm-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type">SaaS · B2B</span>
+            <div class="project-links"><a href="#" class="plink">GitHub</a></div>
+          </div>
+          <div class="project-title">Orbit Analytics Platform</div>
+          <div class="project-desc">Real-time analytics SaaS for e-commerce brands. Multi-dimensional data pipeline ingesting 50M+ daily events with sub-second query response.</div>
+          <div class="project-achievements">
+            <div class="achievement">50M+ events ingested daily</div>
+            <div class="achievement">&lt;200ms p99 query latency</div>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Next.js</span><span class="stack-tag">Python</span><span class="stack-tag">Snowflake</span><span class="stack-tag">Kafka</span><span class="stack-tag">GCP</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in delay-2">
+        <div class="project-img">
+          <div class="project-mockup" style="width:78%;height:72%">
+            <div class="pm-bar"><span class="pm-dot" style="background:#28C840"></span><span class="pm-dot" style="background:#FEBC2E"></span></div>
+            <div class="pm-content">
+              <div class="pm-line w40" style="background:rgba(16,185,129,0.3)"></div>
+              <div class="pm-line w70"></div><div class="pm-line w50"></div><div class="pm-block" style="opacity:0.3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type" style="color:#6EE7B7">Healthcare · API</span>
+            <div class="project-links"><a href="#" class="plink">Live ↗</a></div>
+          </div>
+          <div class="project-title">MedFlow FHIR Gateway</div>
+          <div class="project-desc">HIPAA-compliant EHR integration layer with HL7 FHIR R4 support. Unified API across 12 hospital systems serving 800k patients.</div>
+          <div class="project-achievements">
+            <div class="achievement">SOC 2 Type II certified</div>
+            <div class="achievement">800k patient records unified</div>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Node.js</span><span class="stack-tag">Go</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">AWS</span><span class="stack-tag">Terraform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--bg2)">
+  <div class="section-inner">
+    <span class="section-tag fade-in">Career</span>
+    <h2 class="section-title fade-in">15 years of<br><span>building in production</span></h2>
+    <div class="timeline fade-in delay-1" style="margin-top:3rem">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="t-period">2021 — Present</div>
+        <div class="t-role">Principal Engineer / Architect</div>
+        <div class="t-company">NovaPay Technologies · <span>San Francisco, CA</span></div>
+        <ul class="t-achievements">
+          <li>Architected event-driven payment infrastructure now processing $2B+ annual volume across 40 providers</li>
+          <li>Led a team of 12 engineers across platform, API, and infrastructure squads</li>
+          <li>Drove migration from monolith to microservices, reducing deploy time 80% and incidents 60%</li>
+          <li>Established engineering culture: on-call practices, post-mortems, technical roadmap process</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="t-period">2017 — 2021</div>
+        <div class="t-role">Senior Software Engineer → Tech Lead</div>
+        <div class="t-company">Orbit Labs · <span>New York, NY</span></div>
+        <ul class="t-achievements">
+          <li>Built core analytics pipeline processing 50M+ daily events with &lt;200ms query latency</li>
+          <li>Promoted to Tech Lead, managing 6 engineers and driving team OKRs</li>
+          <li>Reduced AWS infrastructure costs by 40% through rightsizing and reserved capacity planning</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="t-period">2013 — 2017</div>
+        <div class="t-role">Full-Stack Engineer</div>
+        <div class="t-company">Meridian Health Systems · <span>Boston, MA</span></div>
+        <ul class="t-achievements">
+          <li>Designed HIPAA-compliant FHIR integration gateway connecting 12 hospital systems</li>
+          <li>Built React component library used across 8 internal products and 50+ external clients</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--text3)"></div>
+        <div class="t-period">2009 — 2013</div>
+        <div class="t-role">Software Engineer</div>
+        <div class="t-company">Vertex Systems · <span>Austin, TX</span></div>
+        <ul class="t-achievements">
+          <li>Developed B2B SaaS CRM platform from the ground up, scaling to 200+ enterprise clients</li>
+          <li>Led frontend modernisation from jQuery to Angular.js, improving LCP by 3x</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <span class="section-tag fade-in">Social Proof</span>
+    <h2 class="section-title fade-in">What teams<br><span>say about working together</span></h2>
+    <div class="testimonials-grid fade-in delay-1" style="margin-top:2.5rem">
+      <div class="testimonial-card">
+        <div class="tc-quote">"</div>
+        <div class="tc-text">Alex's ability to bridge product vision and engineering execution is rare. He designed our core payment infrastructure and simultaneously upleveled the entire team. He doesn't just write code — he builds engineering culture.</div>
+        <div class="tc-author">
+          <div class="tc-avatar" style="background:rgba(59,130,246,0.15);color:var(--accent2)">SK</div>
+          <div><div class="tc-name">Sarah Kim</div><div class="tc-title-pos">CTO, NovaPay Technologies</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-quote">"</div>
+        <div class="tc-text">One of the most complete engineers I've worked with. Alex led our migration from a monolith to microservices without a single major incident — on schedule and under budget. He earns trust immediately.</div>
+        <div class="tc-author">
+          <div class="tc-avatar" style="background:rgba(139,92,246,0.15);color:#C4B5FD">MP</div>
+          <div><div class="tc-name">Marcus Patel</div><div class="tc-title-pos">VP Engineering, Orbit Labs</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-quote">"</div>
+        <div class="tc-text">Alex mentored three of my current senior engineers. His technical depth is extraordinary, but his ability to communicate architecture tradeoffs to non-technical stakeholders is what sets him apart.</div>
+        <div class="tc-author">
+          <div class="tc-avatar" style="background:rgba(16,185,129,0.15);color:#6EE7B7">LW</div>
+          <div><div class="tc-name">Lauren Wu</div><div class="tc-title-pos">Director of Engineering, Meridian Health</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOG -->
+<section id="blog" style="background:var(--bg2)">
+  <div class="section-inner">
+    <span class="section-tag fade-in">Writing</span>
+    <h2 class="section-title fade-in">Technical writing<br><span>on systems and leadership</span></h2>
+    <div class="blog-grid fade-in delay-1" style="margin-top:2.5rem">
+      <div class="blog-card">
+        <div class="blog-category">Architecture</div>
+        <div class="blog-title">Why Event Sourcing Saved Our Payment System (And When It Wouldn't)</div>
+        <div class="blog-excerpt">A deep dive into our decision to adopt event sourcing at NovaPay, the tradeoffs we discovered in production, and the edge cases nobody talks about.</div>
+        <div class="blog-meta"><span>Apr 2024</span><span>12 min read</span></div>
+        <div class="blog-readmore">Read article →</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-category">Leadership</div>
+        <div class="blog-title">The 1:1 Framework I Wish Someone Had Given Me as a New Tech Lead</div>
+        <div class="blog-excerpt">After managing 12 engineers across 4 years, here's the 1:1 structure, question templates, and mindset shifts that actually improved team performance.</div>
+        <div class="blog-meta"><span>Jan 2024</span><span>8 min read</span></div>
+        <div class="blog-readmore">Read article →</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-category">DevOps</div>
+        <div class="blog-title">Migrating 200 Microservices to Kubernetes Without Downtime</div>
+        <div class="blog-excerpt">A step-by-step account of our 14-month Kubernetes migration — the rollout strategy, blue/green deploys, traffic shifting, and the one incident we didn't anticipate.</div>
+        <div class="blog-meta"><span>Oct 2023</span><span>15 min read</span></div>
+        <div class="blog-readmore">Read article →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <span class="section-tag">Get In Touch</span>
+        <h3>Let's build something remarkable together.</h3>
+        <p>Whether you're looking for a senior engineer, technical co-founder, or engineering leader — I'd love to hear about your challenges and how I might help.</p>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="cm-icon">📧</div>
+            <div><div class="cm-label">Email</div><div class="cm-val">alex@alexmorgan.dev</div></div>
+          </div>
+          <div class="contact-method">
+            <div class="cm-icon">💼</div>
+            <div><div class="cm-label">LinkedIn</div><div class="cm-val">linkedin.com/in/alexmorgan</div></div>
+          </div>
+          <div class="contact-method">
+            <div class="cm-icon">⚡</div>
+            <div><div class="cm-label">GitHub</div><div class="cm-val">github.com/alexmorgan</div></div>
+          </div>
+          <div class="contact-method">
+            <div class="cm-icon">🐦</div>
+            <div><div class="cm-label">X / Twitter</div><div class="cm-val">@alexmorgandev</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form fade-in delay-2">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="you@company.com"></div>
+        </div>
+        <div class="form-group"><label>Company</label><input type="text" placeholder="Acme Corp (optional)"></div>
+        <div class="form-group"><label>Subject</label><input type="text" placeholder="What are you building?"></div>
+        <div class="form-group"><label>Message</label><textarea rows="5" placeholder="Tell me about your project, team, or challenge..."></textarea></div>
+        <button class="btn-primary" style="align-self:flex-start" onclick="this.textContent='Message Sent ✓';this.style.background='var(--green)'">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <div class="footer-copy">© 2024 Alex Morgan. Built with Next.js &amp; Tailwind.</div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="container">
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Hello! I'm a passionate web developer who loves creating modern,
-        responsive, and user-friendly websites. This is a simple personal
-        website template that you can customize with your own information.
-      </p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects">
-
-        <div class="card">
-          <h3>Portfolio Website</h3>
-          <p>A modern responsive portfolio website built using HTML and CSS.</p>
-          <a href="#" class="btn">View Project</a>
-        </div>
-
-        <div class="card">
-          <h3>Blog Website</h3>
-          <p>A clean and minimal blog website for sharing articles and tutorials.</p>
-          <a href="#" class="btn">View Project</a>
-        </div>
-
-        <div class="card">
-          <h3>E-commerce UI</h3>
-          <p>A stylish e-commerce front-end design with responsive layout.</p>
-          <a href="#" class="btn">View Project</a>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: yourname@example.com</p>
-      <p>Phone: +977-9800000000</p>
-      <a href="mailto:yourname@example.com" class="btn">Send Email</a>
-    </section>
-
+    <a href="#blog">Blog</a>
+    <a href="mailto:alex@alexmorgan.dev">Email</a>
   </div>
+</footer>
 
-  <footer>
-    <p>© 2026 Your Name. All Rights Reserved.</p>
-  </footer>
-
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
