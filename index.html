@@ -1,658 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deepak Thapa — .net Full-Stack Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
---bg:#080B10;--bg2:#0D1117;--bg3:#111827;--bg4:#1a2233;
---surface:#131B29;--surface2:#1C2840;
---border:#1E2D45;--border2:#243352;
---text:#F0F4FF;--text2:#8FA8CC;--text3:#4A6080;
---accent:#3B82F6;--accent2:#60A5FA;--accent3:#1D4ED8;
---green:#10B981;--purple:#8B5CF6;--amber:#F59E0B;
---mono:'JetBrains Mono',monospace;
---sans:'DM Sans',sans-serif;--display:'Syne',sans-serif;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deepak Thapa — Senior Software Developer</title>
+<meta name="description" content="Deepak Thapa is a Senior Software Developer building scalable backend systems, APIs and modern web applications. Portfolio, project case studies and engineering writing." />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Deepak Thapa — Senior Software Developer" />
+<meta property="og:description" content="Building reliable software, scalable systems, and products that solve real problems." />
+<meta property="og:url" content="https://alexrivera.dev" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="canonical" href="https://alexrivera.dev" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⌗</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Deepak Thapa",
+  "jobTitle": "Senior Software Developer",
+  "url": "",  <!--"https://alexrivera.dev",-->
+  <!-- "sameAs": ["https://github.com/alexrivera", "https://linkedin.com/in/alexrivera"] -->
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer;border:none;background:none;font-family:inherit}
-img{max-width:100%;display:block}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,11,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,45,69,0.6)}
-.nav-logo{font-family:var(--display);font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
-.nav-logo span{color:var(--accent)}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{font-size:0.85rem;font-weight:400;color:var(--text2);transition:color 0.2s;letter-spacing:0.02em}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{font-size:0.82rem;font-weight:500;padding:0.5rem 1.1rem;border:1px solid var(--border2);border-radius:6px;color:var(--text2);transition:all 0.2s}
-.nav-cta:hover{border-color:var(--accent);color:var(--accent2)}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding:120px 2rem 80px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;pointer-events:none}
-.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.12) 0%,transparent 70%);top:-100px;left:-100px;animation:pulse 8s ease-in-out infinite}
-.hero-glow2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.08) 0%,transparent 70%);bottom:0;right:100px;animation:pulse 10s ease-in-out infinite reverse}
-.grid-lines{position:absolute;inset:0;opacity:0.03;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:0.7}}
-
-.hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative}
-.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 0.85rem;border:1px solid rgba(59,130,246,0.3);border-radius:100px;font-size:0.78rem;color:var(--accent2);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:2rem;background:rgba(59,130,246,0.05)}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
-.hero h1{font-family:var(--display);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--text);margin-bottom:1.5rem}
-.hero h1 .line2{color:var(--text2);font-weight:400}
-.hero-sub{font-size:1.15rem;color:var(--text2);max-width:580px;line-height:1.7;margin-bottom:2.5rem;font-weight:300}
-.hero-sub strong{color:var(--accent2);font-weight:500}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
-.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;background:var(--accent);color:#fff;border-radius:8px;font-weight:500;font-size:0.92rem;transition:all 0.2s;letter-spacing:0.01em}
-.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 8px 25px rgba(59,130,246,0.35)}
-.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;border:1px solid var(--border2);color:var(--text2);border-radius:8px;font-weight:500;font-size:0.92rem;transition:all 0.2s}
-.btn-secondary:hover{border-color:var(--accent);color:var(--text);transform:translateY(-1px)}
-.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
-.stat-item{display:flex;flex-direction:column}
-.stat-num{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--text);letter-spacing:-0.02em}
-.stat-label{font-size:0.8rem;color:var(--text3);letter-spacing:0.04em;text-transform:uppercase}
-.stat-divider{width:1px;background:var(--border);align-self:stretch;margin:0.3rem 0}
-
-/* SECTION COMMON */
-section{padding:100px 2rem}
-.section-inner{max-width:1000px;margin:0 auto;width:100%}
-.section-tag{font-size:0.75rem;font-family:var(--mono);color:var(--accent2);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;display:block}
-.section-title{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:1.5rem;line-height:1.15}
-.section-title span{color:var(--text2);font-weight:400}
-.section-desc{font-size:1.05rem;color:var(--text2);max-width:560px;line-height:1.75;font-weight:300}
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0}
-
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.about-text p{color:var(--text2);font-weight:300;margin-bottom:1.2rem;line-height:1.8}
-.about-highlights{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
-.highlight-item{display:flex;align-items:flex-start;gap:0.85rem;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;transition:border-color 0.2s}
-.highlight-item:hover{border-color:var(--border2)}
-.hi-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.hi-icon.blue{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)}
-.hi-icon.green{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2)}
-.hi-icon.purple{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2)}
-.hi-icon.amber{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2)}
-.hi-title{font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.2rem}
-.hi-sub{font-size:0.8rem;color:var(--text3)}
-.about-right{position:sticky;top:100px}
-.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.terminal-header{display:flex;align-items:center;gap:0.5rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border);background:var(--surface)}
-.t-dot{width:12px;height:12px;border-radius:50%}
-.t-dot.r{background:#FF5F57}.t-dot.y{background:#FEBC2E}.t-dot.g{background:#28C840}
-.terminal-title{font-family:var(--mono);font-size:0.75rem;color:var(--text3);margin-left:0.5rem}
-.terminal-body{padding:1.25rem;font-family:var(--mono);font-size:0.8rem;line-height:1.9}
-.t-comment{color:var(--text3)}.t-key{color:#93C5FD}.t-str{color:#86EFAC}.t-num{color:#FCA5A5}.t-bool{color:#C084FC}.t-obj{color:var(--text2)}
-
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
-.skill-category{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color 0.2s,transform 0.2s}
-.skill-category:hover{border-color:var(--border2);transform:translateY(-2px)}
-.sc-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem}
-.sc-icon{font-size:1.3rem}
-.sc-title{font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3)}
-.skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
-.skill-tag{font-family:var(--mono);font-size:0.75rem;padding:0.3rem 0.65rem;border-radius:5px;color:var(--text2);border:1px solid var(--border)}
-.skill-tag.accent{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);color:var(--accent2)}
-.skill-tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);color:#6EE7B7}
-.skill-tag.purple{background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.25);color:#C4B5FD}
-.skill-tag.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25);color:#FCD34D}
-
-/* PROJECTS */
-.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.25s,transform 0.25s;display:flex;flex-direction:column}
-.project-card:hover{border-color:var(--accent3);transform:translateY(-3px)}
-.project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:0}
-.project-img{height:220px;background:var(--bg3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.project-card.featured .project-img{height:100%;min-height:280px}
-.project-mockup{width:85%;height:75%;border-radius:8px;border:1px solid var(--border2);overflow:hidden;background:var(--bg2);display:flex;flex-direction:column}
-.pm-bar{height:28px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px;gap:6px}
-.pm-dot{width:9px;height:9px;border-radius:50%}
-.pm-content{flex:1;padding:12px;display:flex;flex-direction:column;gap:6px}
-.pm-line{height:6px;border-radius:3px;background:var(--border2)}
-.pm-line.w30{width:30%}.pm-line.w60{width:60%}.pm-line.w80{width:80%}.pm-line.w50{width:50%}.pm-line.w40{width:40%}
-.pm-block{flex:1;border-radius:6px;background:var(--border);margin-top:4px;opacity:0.4}
-.project-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
-.project-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem}
-.project-type{font-size:0.72rem;font-family:var(--mono);color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase}
-.project-links{display:flex;gap:0.5rem}
-.plink{font-size:0.75rem;padding:0.25rem 0.65rem;border:1px solid var(--border);border-radius:5px;color:var(--text3);transition:all 0.2s}
-.plink:hover{border-color:var(--accent);color:var(--accent2)}
-.project-title{font-family:var(--display);font-size:1.15rem;font-weight:700;margin-bottom:0.6rem;letter-spacing:-0.01em}
-.project-desc{font-size:0.88rem;color:var(--text2);line-height:1.7;margin-bottom:1rem;flex:1;font-weight:300}
-.project-achievements{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1rem}
-.achievement{font-size:0.8rem;color:var(--text2);display:flex;align-items:center;gap:0.5rem}
-.achievement::before{content:'→';color:var(--accent2);font-family:var(--mono);font-size:0.75rem}
-.project-stack{display:flex;flex-wrap:wrap;gap:0.4rem}
-.stack-tag{font-family:var(--mono);font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:4px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text3)}
-
-/* EXPERIENCE */
-.timeline{position:relative;padding-left:2rem}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent3),var(--border),transparent)}
-.timeline-item{position:relative;padding-bottom:3rem;padding-left:2.5rem}
-.timeline-dot{position:absolute;left:-2.1rem;top:0.35rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 12px rgba(59,130,246,0.5)}
-.timeline-item:first-child .timeline-dot{background:var(--accent2);box-shadow:0 0 16px rgba(96,165,250,0.6)}
-.t-period{font-family:var(--mono);font-size:0.75rem;color:var(--accent2);letter-spacing:0.08em;margin-bottom:0.5rem}
-.t-role{font-family:var(--display);font-size:1.2rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:0.2rem}
-.t-company{font-size:0.88rem;color:var(--text2);margin-bottom:1rem}
-.t-company span{color:var(--accent2)}
-.t-achievements{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-.t-achievements li{font-size:0.875rem;color:var(--text2);display:flex;gap:0.6rem;font-weight:300}
-.t-achievements li::before{content:'▸';color:var(--accent3);flex-shrink:0;margin-top:0.1rem}
-
-/* TESTIMONIALS */
-.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
-.testimonial-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color 0.2s}
-.testimonial-card:hover{border-color:var(--border2)}
-.tc-quote{font-size:2rem;font-family:var(--display);color:var(--accent3);line-height:1;margin-bottom:0.75rem}
-.tc-text{font-size:0.9rem;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;font-weight:300;font-style:italic}
-.tc-author{display:flex;align-items:center;gap:0.75rem}
-.tc-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:600;letter-spacing:0.03em}
-.tc-name{font-size:0.85rem;font-weight:500}
-.tc-title-pos{font-size:0.75rem;color:var(--text3)}
-
-/* BLOG */
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
-.blog-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all 0.2s;display:flex;flex-direction:column}
-.blog-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.blog-category{font-family:var(--mono);font-size:0.72rem;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem}
-.blog-title{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:0.6rem;line-height:1.4;letter-spacing:-0.01em}
-.blog-excerpt{font-size:0.84rem;color:var(--text2);line-height:1.7;flex:1;margin-bottom:1rem;font-weight:300}
-.blog-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:var(--text3);font-family:var(--mono)}
-.blog-readmore{font-size:0.78rem;color:var(--accent2);display:flex;align-items:center;gap:0.3rem;margin-top:0.5rem;transition:gap 0.2s}
-.blog-card:hover .blog-readmore{gap:0.6rem}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem}
-.contact-info h3{font-family:var(--display);font-size:1.5rem;font-weight:700;margin-bottom:1rem;letter-spacing:-0.02em}
-.contact-info p{color:var(--text2);font-size:0.95rem;line-height:1.75;margin-bottom:2rem;font-weight:300}
-.contact-methods{display:flex;flex-direction:column;gap:0.75rem}
-.contact-method{display:flex;align-items:center;gap:0.85rem;padding:0.85rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:border-color 0.2s}
-.contact-method:hover{border-color:var(--border2)}
-.cm-icon{width:34px;height:34px;border-radius:7px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;font-size:0.95rem}
-.cm-label{font-size:0.78rem;color:var(--text3);margin-bottom:0.1rem}
-.cm-val{font-size:0.88rem;color:var(--accent2);font-family:var(--mono)}
-.contact-form{display:flex;flex-direction:column;gap:1rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.form-group{display:flex;flex-direction:column;gap:0.4rem}
-.form-group label{font-size:0.78rem;color:var(--text3);letter-spacing:0.04em;text-transform:uppercase;font-family:var(--mono)}
-.form-group input,.form-group textarea,.form-group select{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1rem;color:var(--text);font-family:var(--sans);font-size:0.9rem;transition:border-color 0.2s;resize:none}
-.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent3)}
-.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text3)}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-copy{font-size:0.82rem;color:var(--text3);font-family:var(--mono)}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{font-size:0.82rem;color:var(--text3);transition:color 0.2s}
-.footer-links a:hover{color:var(--accent2)}
-
-/* ANIMATE */
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
-.fade-in.visible{opacity:1;transform:none}
-.delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.2s}.delay-3{transition-delay:0.3s}.delay-4{transition-delay:0.4s}
-
-@media(max-width:768px){
-.about-grid,.projects-grid,.contact-grid{grid-template-columns:1fr}
-.project-card.featured{grid-column:auto;grid-template-columns:1fr}
-.project-card.featured .project-img{height:200px}
-.nav-links{display:none}
-.hero h1{font-size:2.4rem}
-.form-row{grid-template-columns:1fr}
-footer{flex-direction:column;gap:1rem;text-align:center}
-}
-</style>
+</script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo"><span>.</span></div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#blog">Writing</a>
-    <a href="#contact" class="nav-cta">Contact me</a>
-  </div>
-</nav>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- HERO -->
+<!-- ============ NAV ============ -->
+<header class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">DT<span class="nav-logo-dot">.</span>dev</a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <!-- <a href="#blog">Blog</a> -->
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#" class="icon-btn" target="_blank" rel="noopener" aria-label="GitHub profile">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56v-2.17c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.78 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.15v3.19c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+      </a>
+      <a href="#" class="icon-btn" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.64h.05c.53-.98 1.83-2.02 3.77-2.02 4.03 0 4.78 2.53 4.78 5.83V21h-4v-5.9c0-1.4-.03-3.21-2-3.21-2 0-2.3 1.5-2.3 3.1V21h-4V9Z"/></svg>
+      </a>
+      <a href="resume.html" class="btn btn-ghost btn-sm">Resume</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 4V2m0 20v-2M4.93 4.93 3.51 3.51m16.98 16.98-1.42-1.42M4 12H2m20 0h-2M4.93 19.07l-1.42 1.42M20.49 3.51l-1.42 1.42M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20.7 14.9A8.7 8.7 0 1 1 9.1 3.3a7 7 0 0 0 11.6 11.6Z"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
 <section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="grid-lines"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow2"></div>
-  </div>
   <div class="hero-inner">
-    <div class="hero-badge fade-in">
-      <span class="badge-dot"></span>
-      Available for senior &amp; leadership roles
+    <div class="hero-copy">
+      <p class="prompt-label"><span class="prompt-sigil">$</span> whoami</p>
+      <h1 class="hero-title">Building reliable software, scalable systems, and products that solve real problems.</h1>
+      <p class="hero-sub">I'm Deepak Thapa, a Senior Software Developer specializing in backend systems, distributed architecture, APIs, and modern web applications — currently focused on infrastructure that holds up under real production load.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View my work</a>
+        <a href="#blog" class="btn btn-outline">Read the blog</a>
+      </div>
+      <div class="hero-links">
+        <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="resume.html">Download résumé ↗</a>
+      </div>
     </div>
-    <h1 class="fade-in delay-1">Deepak Thapa<br><span class="line2">.net Full-Stack Engineer.</span></h1>
-    <p class="hero-sub fade-in delay-2">
-      Building <strong>scalable digital products</strong> and cloud-native systems for startups and enterprises.
-      15+ years designing architecture that ships — and lasts.
-    </p>
-    <div class="hero-ctas fade-in delay-3">
-      <a href="#projects" class="btn-primary">View Projects →</a>
-      <a href="#contact" class="btn-secondary">Contact Me</a>
-    </div>
-    <div class="hero-stats fade-in delay-4">
-      <div class="stat-item">
-        <span class="stat-num">15+</span>
-        <span class="stat-label">Years Exp.</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">40+</span>
-        <span class="stat-label">Products Built</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">12</span>
-        <span class="stat-label">Engineers Led</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">$2B+</span>
-        <span class="stat-label">Transaction Volume</span>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="terminal-title">deepak@product — zsh</span>
+        </div>
+        <pre class="terminal-body" id="terminal-body"></pre>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ============ INTRO / STATS ============ -->
+<section class="intro" id="philosophy-intro">
+  <div class="section-inner intro-grid">
+    <div class="intro-copy">
+      <h2>Engineering software with purpose.</h2>
+      <p>Eight years in, my job hasn't changed much at the core: understand the real problem, keep the system simple enough that the next engineer can reason about it, and make sure it stays up at 3am without anyone getting paged. I care about clean architecture, performance, security, and the kind of developer experience that lets a team move fast without breaking things.</p>
+    </div>
+    <dl class="stats" id="stats">
+      <div class="stat"><dt>8+</dt><dd>Years experience</dd></div>
+      <div class="stat"><dt>10+</dt><dd>Projects delivered</dd></div>
+      <div class="stat"><dt>10M+</dt><dd>Users &amp; requests served</dd></div>
+      <div class="stat"><dt>10+</dt><dd>Technologies</dd></div>
+    </dl>
+  </div>
+</section>
 
-<!-- ABOUT -->
-<section id="about">
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
   <div class="section-inner">
+    <h2 class="section-heading">Who I am</h2>
     <div class="about-grid">
-      <div class="about-text">
-        <span class="section-tag fade-in">About</span>
-        <h2 class="section-title fade-in">Turning complex<br><span>problems into elegant systems</span></h2>
-        <div class="fade-in delay-1">
-          <p>I've spent 15 years at the intersection of product and infrastructure — building teams, shipping systems, and closing the gap between business vision and technical execution.</p>
-          <p>My work spans early-stage startups that needed an MVP yesterday, to enterprise platforms processing millions of events per second. I care about the full stack: from schema design to CI/CD pipelines, from user experience to incident retrospectives.</p>
-          <p>I've led engineering teams across three time zones, architected multi-cloud migrations with zero downtime, and mentored junior engineers into senior ones.</p>
-        </div>
-        <div class="about-highlights fade-in delay-2">
-          <div class="highlight-item">
-            <div class="hi-icon blue">🏗️</div>
-            <div><div class="hi-title">System Architecture</div><div class="hi-sub">Distributed systems, microservices, event-driven design</div></div>
-          </div>
-          <div class="highlight-item">
-            <div class="hi-icon green">☁️</div>
-            <div><div class="hi-title">Cloud &amp; DevOps</div><div class="hi-sub">AWS, GCP, Terraform, Kubernetes, zero-downtime deploys</div></div>
-          </div>
-          <div class="highlight-item">
-            <div class="hi-icon purple">👥</div>
-            <div><div class="hi-title">Technical Leadership</div><div class="hi-sub">Hiring, mentoring, team structure, engineering culture</div></div>
-          </div>
-          <div class="highlight-item">
-            <div class="hi-icon amber">📈</div>
-            <div><div class="hi-title">Business Impact Focus</div><div class="hi-sub">Aligning engineering velocity with revenue outcomes</div></div>
-          </div>
-        </div>
+      <div class="about-bio">
+        <p>I'm a senior software developer working mostly on backend systems and the infrastructure underneath them — services that need to stay fast and correct as traffic grows, not just work on my laptop. My background spans fintech, e-commerce and developer tools, and I've spent most of that time on teams shipping to production continuously rather than in long release cycles.</p>
+        <p>Outside of the day job, I write about the engineering decisions that don't make it into the changelog, contribute to a couple of open-source projects, and mentor junior engineers who are past tutorials and into the messy part of the job.</p>
       </div>
-      <div class="about-right fade-in delay-2">
-        <div class="terminal">
-          <div class="terminal-header">
-            <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
-            <span class="terminal-title">~/alex-morgan/.profile</span>
-          </div>
-          <div class="terminal-body">
-            <span class="t-comment">// Senior Full-Stack Engineer</span><br>
-            <span class="t-key">const</span> <span class="t-obj">engineer</span> = {<br>
-            &nbsp;&nbsp;<span class="t-key">name</span>: <span class="t-str">"Alex Morgan"</span>,<br>
-            &nbsp;&nbsp;<span class="t-key">role</span>: <span class="t-str">"Senior Full-Stack"</span>,<br>
-            &nbsp;&nbsp;<span class="t-key">experience</span>: <span class="t-num">15</span>,<span class="t-comment"> // years</span><br>
-            &nbsp;&nbsp;<span class="t-key">location</span>: <span class="t-str">"San Francisco, CA"</span>,<br>
-            &nbsp;&nbsp;<span class="t-key">openToWork</span>: <span class="t-bool">true</span>,<br>
-            &nbsp;&nbsp;<span class="t-key">focus</span>: [<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"scalable architecture"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"cloud-native systems"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"engineering leadership"</span><br>
-            &nbsp;&nbsp;],<br>
-            &nbsp;&nbsp;<span class="t-key">currentStack</span>: {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">frontend</span>: <span class="t-str">"Next.js + TypeScript"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">backend</span>: <span class="t-str">"Node.js + Go"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">cloud</span>: <span class="t-str">"AWS + Kubernetes"</span>,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">db</span>: <span class="t-str">"PostgreSQL + Redis"</span><br>
-            &nbsp;&nbsp;}<br>
-            };<br><br>
-            <span class="t-comment">// Currently available for:</span><br>
-            <span class="t-comment">// → CTO / VP Engineering roles</span><br>
-            <span class="t-comment">// → Senior / Staff IC positions</span><br>
-            <span class="t-comment">// → Technical consulting</span>
-          </div>
+      <div class="principles">
+        <div class="principle">
+          <h3>Keep it simple</h3>
+          <p>Prefer solutions that are easy to understand, maintain, and hand off — cleverness is a cost, not a feature.</p>
+        </div>
+        <div class="principle">
+          <h3>Build for scale</h3>
+          <p>Design with reliability, performance, and future growth in mind, without over-engineering for load that may never come.</p>
+        </div>
+        <div class="principle">
+          <h3>Automate everything</h3>
+          <p>If a human does it twice, it becomes a script. Repetitive work is where bugs and burnout both live.</p>
+        </div>
+        <div class="principle">
+          <h3>Measure before optimizing</h3>
+          <p>Use data and observability to find the real bottleneck before spending a sprint chasing the imagined one.</p>
+        </div>
+        <div class="principle">
+          <h3>Write code for humans</h3>
+          <p>Code is read far more often than it's written. Readable beats clever, every time it matters.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<section id="skills" style="background:var(--bg2)">
+<!-- ============ SKILLS ============ -->
+<section class="skills" id="skills">
   <div class="section-inner">
-    <span class="section-tag fade-in">Technical Expertise</span>
-    <h2 class="section-title fade-in">Battle-tested<br><span>across the full stack</span></h2>
-    <div class="skills-grid" style="margin-top:2.5rem">
-      <div class="skill-category fade-in">
-        <div class="sc-header"><span class="sc-icon">⚡</span><span class="sc-title">Frontend</span></div>
-        <div class="skill-tags">
-          <span class="skill-tag accent">React</span><span class="skill-tag accent">Next.js</span><span class="skill-tag accent">TypeScript</span><span class="skill-tag accent">Tailwind</span><span class="skill-tag">Vue.js</span><span class="skill-tag">Framer Motion</span><span class="skill-tag">GraphQL</span><span class="skill-tag">Vite</span>
-        </div>
-      </div>
-      <div class="skill-category fade-in delay-1">
-        <div class="sc-header"><span class="sc-icon">🔧</span><span class="sc-title">Backend</span></div>
-        <div class="skill-tags">
-          <span class="skill-tag green">Node.js</span><span class="skill-tag green">Python</span><span class="skill-tag green">Go</span><span class="skill-tag green">GraphQL</span><span class="skill-tag">REST APIs</span><span class="skill-tag">gRPC</span><span class="skill-tag">Rust</span><span class="skill-tag">Kafka</span>
-        </div>
-      </div>
-      <div class="skill-category fade-in delay-2">
-        <div class="sc-header"><span class="sc-icon">☁️</span><span class="sc-title">Cloud &amp; DevOps</span></div>
-        <div class="skill-tags">
-          <span class="skill-tag purple">AWS</span><span class="skill-tag purple">Docker</span><span class="skill-tag purple">Kubernetes</span><span class="skill-tag purple">Terraform</span><span class="skill-tag purple">CI/CD</span><span class="skill-tag">GCP</span><span class="skill-tag">Datadog</span><span class="skill-tag">Istio</span>
-        </div>
-      </div>
-      <div class="skill-category fade-in delay-3">
-        <div class="sc-header"><span class="sc-icon">🗄️</span><span class="sc-title">Databases</span></div>
-        <div class="skill-tags">
-          <span class="skill-tag amber">PostgreSQL</span><span class="skill-tag amber">Redis</span><span class="skill-tag amber">MongoDB</span><span class="skill-tag">MySQL</span><span class="skill-tag">Elasticsearch</span><span class="skill-tag">DynamoDB</span><span class="skill-tag">Snowflake</span>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-heading">Technical skills</h2>
+    <div class="skills-grid" id="skills-grid"></div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<section id="projects">
+<!-- ============ EXPERIENCE ============ -->
+<section class="experience" id="experience">
   <div class="section-inner">
-    <span class="section-tag fade-in">Featured Work</span>
-    <h2 class="section-title fade-in">Projects built<br><span>for scale and longevity</span></h2>
-    <div class="projects-grid" style="margin-top:2.5rem">
-      <div class="project-card featured fade-in">
-        <div class="project-img">
-          <div class="project-mockup">
-            <div class="pm-bar"><span class="pm-dot" style="background:#FF5F57"></span><span class="pm-dot" style="background:#FEBC2E"></span><span class="pm-dot" style="background:#28C840"></span></div>
-            <div class="pm-content">
-              <div class="pm-line w60" style="background:rgba(59,130,246,0.3)"></div>
-              <div class="pm-line w80"></div><div class="pm-line w40"></div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1"><div class="pm-block"></div><div class="pm-block" style="opacity:0.25"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="project-type">Fintech · Enterprise</span>
-            <div class="project-links"><a href="#" class="plink">GitHub</a><a href="#" class="plink">Live ↗</a></div>
-          </div>
-          <div class="project-title">NovaPay — Real-time Payment Infrastructure</div>
-          <div class="project-desc">Multi-tenant payment platform processing $2B+ in annual transaction volume. Built from the ground up with CQRS, event sourcing, and distributed sagas for idempotent transactions across 40+ payment providers.</div>
-          <div class="project-achievements">
-            <div class="achievement">99.99% uptime across 36-month period</div>
-            <div class="achievement">Reduced payment latency from 800ms to 95ms</div>
-            <div class="achievement">Scaled from 10k to 2M transactions/day</div>
-          </div>
-          <div class="project-stack">
-            <span class="stack-tag">Go</span><span class="stack-tag">Node.js</span><span class="stack-tag">Kafka</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Redis</span><span class="stack-tag">Kubernetes</span><span class="stack-tag">AWS</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-in delay-1">
-        <div class="project-img">
-          <div class="project-mockup" style="width:78%;height:72%">
-            <div class="pm-bar"><span class="pm-dot" style="background:#FF5F57"></span><span class="pm-dot" style="background:#FEBC2E"></span></div>
-            <div class="pm-content">
-              <div class="pm-line w50" style="background:rgba(139,92,246,0.3)"></div>
-              <div class="pm-line w80"></div><div class="pm-line w30"></div><div class="pm-block"></div>
-            </div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="project-type">SaaS · B2B</span>
-            <div class="project-links"><a href="#" class="plink">GitHub</a></div>
-          </div>
-          <div class="project-title">Orbit Analytics Platform</div>
-          <div class="project-desc">Real-time analytics SaaS for e-commerce brands. Multi-dimensional data pipeline ingesting 50M+ daily events with sub-second query response.</div>
-          <div class="project-achievements">
-            <div class="achievement">50M+ events ingested daily</div>
-            <div class="achievement">&lt;200ms p99 query latency</div>
-          </div>
-          <div class="project-stack">
-            <span class="stack-tag">Next.js</span><span class="stack-tag">Python</span><span class="stack-tag">Snowflake</span><span class="stack-tag">Kafka</span><span class="stack-tag">GCP</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card fade-in delay-2">
-        <div class="project-img">
-          <div class="project-mockup" style="width:78%;height:72%">
-            <div class="pm-bar"><span class="pm-dot" style="background:#28C840"></span><span class="pm-dot" style="background:#FEBC2E"></span></div>
-            <div class="pm-content">
-              <div class="pm-line w40" style="background:rgba(16,185,129,0.3)"></div>
-              <div class="pm-line w70"></div><div class="pm-line w50"></div><div class="pm-block" style="opacity:0.3"></div>
-            </div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="project-type" style="color:#6EE7B7">Healthcare · API</span>
-            <div class="project-links"><a href="#" class="plink">Live ↗</a></div>
-          </div>
-          <div class="project-title">MedFlow FHIR Gateway</div>
-          <div class="project-desc">HIPAA-compliant EHR integration layer with HL7 FHIR R4 support. Unified API across 12 hospital systems serving 800k patients.</div>
-          <div class="project-achievements">
-            <div class="achievement">SOC 2 Type II certified</div>
-            <div class="achievement">800k patient records unified</div>
-          </div>
-          <div class="project-stack">
-            <span class="stack-tag">Node.js</span><span class="stack-tag">Go</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">AWS</span><span class="stack-tag">Terraform</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-heading">Experience</h2>
+    <ol class="timeline" id="timeline"></ol>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-<section id="experience" style="background:var(--bg2)">
+<!-- ============ PROJECTS ============ -->
+<section class="projects" id="projects">
   <div class="section-inner">
-    <span class="section-tag fade-in">Career</span>
-    <h2 class="section-title fade-in">15 years of<br><span>building in production</span></h2>
-    <div class="timeline fade-in delay-1" style="margin-top:3rem">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="t-period">2021 — Present</div>
-        <div class="t-role">Principal Engineer / Architect</div>
-        <div class="t-company">NovaPay Technologies · <span>San Francisco, CA</span></div>
-        <ul class="t-achievements">
-          <li>Architected event-driven payment infrastructure now processing $2B+ annual volume across 40 providers</li>
-          <li>Led a team of 12 engineers across platform, API, and infrastructure squads</li>
-          <li>Drove migration from monolith to microservices, reducing deploy time 80% and incidents 60%</li>
-          <li>Established engineering culture: on-call practices, post-mortems, technical roadmap process</li>
-        </ul>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="t-period">2017 — 2021</div>
-        <div class="t-role">Senior Software Engineer → Tech Lead</div>
-        <div class="t-company">Orbit Labs · <span>New York, NY</span></div>
-        <ul class="t-achievements">
-          <li>Built core analytics pipeline processing 50M+ daily events with &lt;200ms query latency</li>
-          <li>Promoted to Tech Lead, managing 6 engineers and driving team OKRs</li>
-          <li>Reduced AWS infrastructure costs by 40% through rightsizing and reserved capacity planning</li>
-        </ul>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="t-period">2013 — 2017</div>
-        <div class="t-role">Full-Stack Engineer</div>
-        <div class="t-company">Meridian Health Systems · <span>Boston, MA</span></div>
-        <ul class="t-achievements">
-          <li>Designed HIPAA-compliant FHIR integration gateway connecting 12 hospital systems</li>
-          <li>Built React component library used across 8 internal products and 50+ external clients</li>
-        </ul>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot" style="background:var(--text3)"></div>
-        <div class="t-period">2009 — 2013</div>
-        <div class="t-role">Software Engineer</div>
-        <div class="t-company">Vertex Systems · <span>Austin, TX</span></div>
-        <ul class="t-achievements">
-          <li>Developed B2B SaaS CRM platform from the ground up, scaling to 200+ enterprise clients</li>
-          <li>Led frontend modernisation from jQuery to Angular.js, improving LCP by 3x</li>
-        </ul>
+    <div class="section-header-row">
+      <h2 class="section-heading">Featured projects</h2>
+      <div class="filter-group" id="project-filters">
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Apps</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="opensource">Open Source</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="infra">Infrastructure</button>
       </div>
     </div>
+    <div class="project-grid" id="project-grid"></div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
+<!-- ============ OPEN SOURCE ============ -->
+<section class="opensource" id="opensource">
   <div class="section-inner">
-    <span class="section-tag fade-in">Social Proof</span>
-    <h2 class="section-title fade-in">What teams<br><span>say about working together</span></h2>
-    <div class="testimonials-grid fade-in delay-1" style="margin-top:2.5rem">
-      <div class="testimonial-card">
-        <div class="tc-quote">"</div>
-        <div class="tc-text">Alex's ability to bridge product vision and engineering execution is rare. He designed our core payment infrastructure and simultaneously upleveled the entire team. He doesn't just write code — he builds engineering culture.</div>
-        <div class="tc-author">
-          <div class="tc-avatar" style="background:rgba(59,130,246,0.15);color:var(--accent2)">SK</div>
-          <div><div class="tc-name">Sarah Kim</div><div class="tc-title-pos">CTO, NovaPay Technologies</div></div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="tc-quote">"</div>
-        <div class="tc-text">One of the most complete engineers I've worked with. Alex led our migration from a monolith to microservices without a single major incident — on schedule and under budget. He earns trust immediately.</div>
-        <div class="tc-author">
-          <div class="tc-avatar" style="background:rgba(139,92,246,0.15);color:#C4B5FD">MP</div>
-          <div><div class="tc-name">Marcus Patel</div><div class="tc-title-pos">VP Engineering, Orbit Labs</div></div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="tc-quote">"</div>
-        <div class="tc-text">Alex mentored three of my current senior engineers. His technical depth is extraordinary, but his ability to communicate architecture tradeoffs to non-technical stakeholders is what sets him apart.</div>
-        <div class="tc-author">
-          <div class="tc-avatar" style="background:rgba(16,185,129,0.15);color:#6EE7B7">LW</div>
-          <div><div class="tc-name">Lauren Wu</div><div class="tc-title-pos">Director of Engineering, Meridian Health</div></div>
-        </div>
-      </div>
+    <div class="section-header-row">
+      <h2 class="section-heading">Open source</h2>
+      <a href="https://github.com/alexrivera" target="_blank" rel="noopener" class="btn btn-outline btn-sm">View GitHub profile</a>
     </div>
+    <p class="section-note">Live stars, forks and contribution activity require the GitHub API — the cards below are wired to render real data once a token is supplied in <code>script.js</code>; static figures are shown as a fallback.</p>
+    <div class="repo-grid" id="repo-grid"></div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- BLOG -->
-<section id="blog" style="background:var(--bg2)">
+<!-- ============ BLOG ============ -->
+<!-- <section class="blog" id="blog">
   <div class="section-inner">
-    <span class="section-tag fade-in">Writing</span>
-    <h2 class="section-title fade-in">Technical writing<br><span>on systems and leadership</span></h2>
-    <div class="blog-grid fade-in delay-1" style="margin-top:2.5rem">
-      <div class="blog-card">
-        <div class="blog-category">Architecture</div>
-        <div class="blog-title">Why Event Sourcing Saved Our Payment System (And When It Wouldn't)</div>
-        <div class="blog-excerpt">A deep dive into our decision to adopt event sourcing at NovaPay, the tradeoffs we discovered in production, and the edge cases nobody talks about.</div>
-        <div class="blog-meta"><span>Apr 2024</span><span>12 min read</span></div>
-        <div class="blog-readmore">Read article →</div>
+    <h2 class="section-heading">Writing</h2>
+
+    <div class="blog-controls">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm9 2-4.35-4.35"/></svg>
+        <input type="search" id="blog-search" placeholder="Search articles, tutorials, and engineering ideas…" aria-label="Search articles" />
       </div>
-      <div class="blog-card">
-        <div class="blog-category">Leadership</div>
-        <div class="blog-title">The 1:1 Framework I Wish Someone Had Given Me as a New Tech Lead</div>
-        <div class="blog-excerpt">After managing 12 engineers across 4 years, here's the 1:1 structure, question templates, and mindset shifts that actually improved team performance.</div>
-        <div class="blog-meta"><span>Jan 2024</span><span>8 min read</span></div>
-        <div class="blog-readmore">Read article →</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-category">DevOps</div>
-        <div class="blog-title">Migrating 200 Microservices to Kubernetes Without Downtime</div>
-        <div class="blog-excerpt">A step-by-step account of our 14-month Kubernetes migration — the rollout strategy, blue/green deploys, traffic shifting, and the one incident we didn't anticipate.</div>
-        <div class="blog-meta"><span>Oct 2023</span><span>15 min read</span></div>
-        <div class="blog-readmore">Read article →</div>
+      <div class="filter-group" id="blog-categories">
+        <button class="filter-btn is-active" data-cat="all">All</button>
       </div>
     </div>
+
+    <article class="featured-post" id="featured-post"></article>
+
+    <div class="post-grid" id="post-grid"></div>
+    <p class="empty-state" id="blog-empty" hidden>No articles match that search — try a different term or category.</p>
+  </div>
+</section> -->
+
+<!-- Article reading overlay
+<div class="article-overlay" id="article-overlay" hidden>
+  <div class="article-panel" role="dialog" aria-modal="true" aria-labelledby="article-title">
+    <button class="article-close" id="article-close" aria-label="Close article">✕</button>
+    <div class="article-content" id="article-content"></div>
+  </div>
+</div> -->
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter" id="newsletter">
+  <div class="section-inner newsletter-inner">
+    <div>
+      <h2>Engineering notes, occasionally.</h2>
+      <p>Practical software engineering ideas, architecture lessons, and tutorials — no spam, unsubscribe any time.</p>
+    </div>
+    <form class="newsletter-form" id="newsletter-form">
+      <label class="sr-only" for="newsletter-email">Email address</label>
+      <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+    <p class="form-note" id="newsletter-note" role="status"></p>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="contact-grid">
-      <div class="contact-info fade-in">
-        <span class="section-tag">Get In Touch</span>
-        <h3>Let's build something remarkable together.</h3>
-        <p>Whether you're looking for a senior engineer, technical co-founder, or engineering leader — I'd love to hear about your challenges and how I might help.</p>
-        <div class="contact-methods">
-          <div class="contact-method">
-            <div class="cm-icon">📧</div>
-            <div><div class="cm-label">Email</div><div class="cm-val">alex@alexmorgan.dev</div></div>
-          </div>
-          <div class="contact-method">
-            <div class="cm-icon">💼</div>
-            <div><div class="cm-label">LinkedIn</div><div class="cm-val">linkedin.com/in/alexmorgan</div></div>
-          </div>
-          <div class="contact-method">
-            <div class="cm-icon">⚡</div>
-            <div><div class="cm-label">GitHub</div><div class="cm-val">github.com/alexmorgan</div></div>
-          </div>
-          <div class="contact-method">
-            <div class="cm-icon">🐦</div>
-            <div><div class="cm-label">X / Twitter</div><div class="cm-val">@alexmorgandev</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form fade-in delay-2">
-        <div class="form-row">
-          <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
-          <div class="form-group"><label>Email</label><input type="email" placeholder="you@company.com"></div>
-        </div>
-        <div class="form-group"><label>Company</label><input type="text" placeholder="Acme Corp (optional)"></div>
-        <div class="form-group"><label>Subject</label><input type="text" placeholder="What are you building?"></div>
-        <div class="form-group"><label>Message</label><textarea rows="5" placeholder="Tell me about your project, team, or challenge..."></textarea></div>
-        <button class="btn-primary" style="align-self:flex-start" onclick="this.textContent='Message Sent ✓';this.style.background='var(--green)'">Send Message →</button>
-      </div>
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="section-inner contact-grid">
+    <div class="contact-copy">
+      <h2>Have a project or idea?</h2>
+      <p>I'm always interested in discussing interesting software, technical challenges, and opportunities to build useful products.</p>
+      <ul class="contact-meta">
+        <li><span>Email</span><a href="mailto:hello@alexrivera.dev">hello@alexrivera.dev</a></li>
+        <li><span>GitHub</span><a href="https://github.com/alexrivera" target="_blank" rel="noopener">github.com/alexrivera</a></li>
+        <li><span>LinkedIn</span><a href="https://linkedin.com/in/alexrivera" target="_blank" rel="noopener">linkedin.com/in/alexrivera</a></li>
+        <li><span>Location</span><span>Remote — GMT-5</span></li>
+      </ul>
     </div>
+    <form class="contact-form" id="contact-form" novalidate>
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required />
+        <span class="field-error" data-for="cf-name"></span>
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" required />
+        <span class="field-error" data-for="cf-email"></span>
+      </div>
+      <div class="form-row">
+        <label for="cf-subject">Subject</label>
+        <input type="text" id="cf-subject" name="subject" required />
+        <span class="field-error" data-for="cf-subject"></span>
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" required></textarea>
+        <span class="field-error" data-for="cf-message"></span>
+      </div>
+      <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button type="submit" class="btn btn-primary">Send message</button>
+      <p class="form-note" id="contact-note" role="status"></p>
+    </form>
   </div>
 </section>
 
-<div class="divider"></div>
+</main>
 
-<footer>
-  <div class="footer-copy">© 2024 Alex Morgan. Built with Next.js &amp; Tailwind.</div>
-  <div class="footer-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#blog">Blog</a>
-    <a href="mailto:alex@alexmorgan.dev">Email</a>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="section-inner footer-grid">
+    <div>
+      <p class="footer-name">Deepak Thapa</p>
+      <p class="footer-tag">Senior Software Developer building reliable software and scalable systems.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="resume.html">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-social">
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">X</a>
+    </div>
+  </div>
+  <div class="section-inner footer-bottom">
+    <p>© 2026 Deepak Thapa. All rights reserved.</p>
+    <p>Built with HTML, CSS &amp; JavaScript.</p>
   </div>
 </footer>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+<script src="script.js"></script>
 </body>
 </html>
