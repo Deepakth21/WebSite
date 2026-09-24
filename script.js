@@ -58,7 +58,8 @@ const PROJECTS = [
      cats: ["web","Api"],
      highlights: ["Remittance"],
     // github: "https://github.com/alexrivera/design-dashboard",
-   // demo: "https://japanremit.com/"},
+   // demo: "https://japanremit.com/"
+   },
   {
     title: "IME Pay (wallet)",
     desc: "A scalable analytics platform designed to process large volumes of real-time transactions  .",
@@ -369,8 +370,8 @@ function renderProjects(filter) {
       <ul class="project-highlights">${p.highlights.map((h) => `<li>${h}</li>`).join("")}</ul>
       <div class="project-actions">
         <button class="btn btn-outline btn-sm js-toggle-case">View case study</button>
-      //<a class="btn btn-ghost btn-sm" href="${p.github}" target="_blank" rel="noopener">GitHub</a>
-       // <a class="btn btn-ghost btn-sm" href="${p.demo}" target="_blank" rel="noopener">Live demo</a>
+      // <a class="btn btn-ghost btn-sm" href="${p.github}" target="_blank" rel="noopener">GitHub</a>
+      //  <a class="btn btn-ghost btn-sm" href="${p.demo}" target="_blank" rel="noopener">Live demo</a>
       </div>
     </article>`
     )
