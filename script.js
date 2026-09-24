@@ -370,8 +370,6 @@ function renderProjects(filter) {
       <ul class="project-highlights">${p.highlights.map((h) => `<li>${h}</li>`).join("")}</ul>
       <div class="project-actions">
         <button class="btn btn-outline btn-sm js-toggle-case">View case study</button>
-      // <a class="btn btn-ghost btn-sm" href="${p.github}" target="_blank" rel="noopener">GitHub</a>
-      //  <a class="btn btn-ghost btn-sm" href="${p.demo}" target="_blank" rel="noopener">Live demo</a>
       </div>
     </article>`
     )
