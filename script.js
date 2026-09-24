@@ -56,7 +56,7 @@ const PROJECTS = [
      desc: "A secure remittance platform for processing and managing international money transfers to Japan, with API integrations, transaction processing, beneficiary management, and banking-system communication.",
      tags: ["C#", ".net","Javascript"],
      cats: ["web","Api"],
-     highlights: ["Adopted across 12 product teams", "Automated visual regression tests"],
+     highlights: ["", ""],
     // github: "https://github.com/alexrivera/design-dashboard",
     demo: "#",},
   {
