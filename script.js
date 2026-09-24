@@ -82,7 +82,7 @@ const PROJECTS = [
     desc: "online hotel booking system with payment gateway integration.",
     tags: ["C#", ".netcore", "Mssql", "javascript", "bootstrap", "jquery", "github"],
     cats: ["backend","web"],
-    highlights: ["Used by 40+ teams internally", "Plugin architecture"],
+    highlights: [],
     // github: "https://github.com/alexrivera/openapi-lint",
    // demo: "#",
   },
