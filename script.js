@@ -51,11 +51,19 @@ const EXPERIENCE = [
 ];
 
 const PROJECTS = [
+     {
+   title: "Japan Remittance"
+     desc: "A secure remittance platform for processing and managing international money transfers to Japan, with API integrations, transaction processing, beneficiary management, and banking-system communication.",
+     tags: ["C#", ".net" "Javascript"],
+     cats: ["web","Api"],
+     highlights: ["Adopted across 12 product teams", "Automated visual regression tests"],
+    // github: "https://github.com/alexrivera/design-dashboard",
+    demo: "#",},
   {
     title: "IME Pay (wallet)",
     desc: "A scalable analytics platform designed to process large volumes of real-time transactions  .",
     tags: ["C#", ".netcore", "Mssql", "Redis"],
-    cats: ["backend", "infra"],
+    cats: ["backend", "infra","fintech"],
     highlights: ["Event-driven architecture", "Horizontal scaling", "Real-time processing", "Distributed caching"],
    // github: "https://github.com/alexrivera/analytics-platform",
     demo: "#",
