@@ -90,7 +90,7 @@ const PROJECTS = [
     title: "Restaurant Management System",
     desc: "A web-based restaurant management system for order processing, inventory management, and reporting.",
    tags: ["C#", ".netcore", "Mssql", "javascript", "bootstrap", "jquery" ,"github"],
-    cats: ["ai", "backend"],
+    cats: ["webAPI", "backend"],
     highlights: [],
   //  github: "https://github.com/alexrivera/ticket-summarizer",
    // demo: "#",
