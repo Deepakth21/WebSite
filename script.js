@@ -52,11 +52,11 @@ const EXPERIENCE = [
 
 const PROJECTS = [
      {
-     title: "Japan Remittance",
+     title: "Japan Money Transfer",
      desc: "A secure remittance platform for processing and managing international money transfers to Japan, with API integrations, transaction processing, beneficiary management, and banking-system communication.",
      tags: ["C#", ".net","Javascript"],
      cats: ["web","Api"],
-     highlights: ["", ""],
+     highlights: ["Remittance", ""],
     // github: "https://github.com/alexrivera/design-dashboard",
     demo: "#",},
   {
