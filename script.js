@@ -63,7 +63,7 @@ const PROJECTS = [
     title: "IME Pay (wallet)",
     desc: "A scalable analytics platform designed to process large volumes of real-time transactions  .",
     tags: ["C#","ISO8583",".netcore", "Mssql", "Redis"],
-    cats: ["backend", "infra","fintech","web],
+    cats: ["backend", "infra","fintech","web"],
     highlights: ["Event-driven architecture", "Horizontal scaling", "Real-time processing", "Distributed caching"],
    // github: "https://github.com/alexrivera/analytics-platform",
     demo: "#",
