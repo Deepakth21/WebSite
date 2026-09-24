@@ -27,7 +27,7 @@ const EXPERIENCE = [
     metrics: ["-99.99% API response time", "Weekly → multiple deploys/day", "Serves 10M+ requests/month"],
   },
   {
-    role: "Software Developer",
+    role: "Senior Software Developer",
     org: "IME Digital Solution private ltd.",
     date: "2019 — 2025",
     points: [
