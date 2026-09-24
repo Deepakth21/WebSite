@@ -400,7 +400,7 @@ document.getElementById("project-filters").addEventListener("click", (e) => {
    To use live data: fetch(`https://api.github.com/users/alexrivera/repos?sort=updated`)
    and map the response into the same card markup below.
 ========================================================= */
-(function renderRepos() {
+/*(function renderRepos() {
   const grid = document.getElementById("repo-grid");
   grid.innerHTML = REPOS.map(
     (r) => `
@@ -414,7 +414,7 @@ document.getElementById("project-filters").addEventListener("click", (e) => {
       </div>
     </div>`
   ).join("");
-})();
+})();*/
 
 /* =========================================================
    BLOG — categories, search, featured post, article overlay
