@@ -58,7 +58,7 @@ const PROJECTS = [
      cats: ["web","Api"],
      highlights: ["Remittance"],
     // github: "https://github.com/alexrivera/design-dashboard",
-    demo: "https://japanremit.com/"},
+   // demo: "https://japanremit.com/"},
   {
     title: "IME Pay (wallet)",
     desc: "A scalable analytics platform designed to process large volumes of real-time transactions  .",
@@ -66,7 +66,7 @@ const PROJECTS = [
     cats: ["backend", "infra","fintech","web"],
     highlights: ["Event-driven architecture", "Horizontal scaling", "Real-time processing", "Distributed caching"],
    // github: "https://github.com/alexrivera/analytics-platform",
-    demo: "#",
+ //   demo: "#",
   },
   {
     title: "HR Management System",
@@ -75,7 +75,7 @@ const PROJECTS = [
     cats: ["backend", "web"],
     highlights: [],
     //github: "https://github.com/alexrivera/checkout-service",
-    demo: "#"
+    //demo: "#"
   },
   {
     title: "Hotel Booking System",
@@ -84,7 +84,7 @@ const PROJECTS = [
     cats: ["backend","web"],
     highlights: ["Used by 40+ teams internally", "Plugin architecture"],
     // github: "https://github.com/alexrivera/openapi-lint",
-    demo: "#",
+   // demo: "#",
   },
   {
     title: "Restaurant Management System",
@@ -93,7 +93,7 @@ const PROJECTS = [
     cats: ["ai", "backend"],
     highlights: [],
   //  github: "https://github.com/alexrivera/ticket-summarizer",
-    demo: "#",
+   // demo: "#",
   },
   // {
   //   title: "Design System Dashboard",
