@@ -58,7 +58,7 @@ const PROJECTS = [
      cats: ["web","Api"],
      highlights: ["Remittance"],
     // github: "https://github.com/alexrivera/design-dashboard",
-    demo: "#",},
+    demo: "https://japanremit.com/"},
   {
     title: "IME Pay (wallet)",
     desc: "A scalable analytics platform designed to process large volumes of real-time transactions  .",
